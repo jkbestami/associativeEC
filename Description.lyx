@@ -1,0 +1,531 @@
+#LyX 2.3 created this file. For more info see http://www.lyx.org/
+\lyxformat 544
+\begin_document
+\begin_header
+\save_transient_properties true
+\origin unavailable
+\textclass amsart
+\begin_preamble
+
+\renewenvironment{proof}[1][\proofname]{\par
+%  \pushQED{\qed}% <--- remove the QED business
+  \normalfont \topsep6\p@\@plus6\p@\relax
+  \trivlist
+  \item[\hskip\labelsep
+        \itshape
+    #1\@addpunct{.}]\ignorespaces
+}{%
+%  \popQED% <--- remove the QED business
+  \endtrivlist\@endpefalse
+}
+\renewcommand\qedhere{} % to ensure code portability
+\makeatother
+\end_preamble
+\use_default_options true
+\begin_removed_modules
+theorems-ams
+\end_removed_modules
+\begin_modules
+eqs-within-sections
+figs-within-sections
+theorems-ams-bytype
+theorems-ams-extended-bytype
+\end_modules
+\maintain_unincluded_children false
+\language english
+\language_package default
+\inputencoding auto
+\fontencoding global
+\font_roman "default" "default"
+\font_sans "default" "default"
+\font_typewriter "default" "default"
+\font_math "auto" "auto"
+\font_default_family default
+\use_non_tex_fonts false
+\font_sc false
+\font_osf false
+\font_sf_scale 100 100
+\font_tt_scale 100 100
+\use_microtype false
+\use_dash_ligatures true
+\graphics default
+\default_output_format default
+\output_sync 0
+\bibtex_command default
+\index_command default
+\paperfontsize 12
+\spacing single
+\use_hyperref false
+\papersize a4paper
+\use_geometry true
+\use_package amsmath 1
+\use_package amssymb 1
+\use_package cancel 1
+\use_package esint 1
+\use_package mathdots 1
+\use_package mathtools 1
+\use_package mhchem 1
+\use_package stackrel 1
+\use_package stmaryrd 1
+\use_package undertilde 1
+\cite_engine basic
+\cite_engine_type default
+\biblio_style plain
+\use_bibtopic false
+\use_indices false
+\paperorientation portrait
+\suppress_date false
+\justification true
+\use_refstyle 1
+\use_minted 0
+\index Index
+\shortcut idx
+\color #008000
+\end_index
+\leftmargin 2cm
+\topmargin 2cm
+\rightmargin 2cm
+\bottommargin 2cm
+\headheight 2cm
+\headsep 2cm
+\secnumdepth 3
+\tocdepth 3
+\paragraph_separation indent
+\paragraph_indentation default
+\is_math_indent 0
+\math_numbering_side default
+\quotes_style english
+\dynamic_quotes 0
+\papercolumns 1
+\papersides 1
+\paperpagestyle default
+\tracking_changes false
+\output_changes false
+\html_math_output 0
+\html_css_as_file 0
+\html_be_strict false
+\end_header
+
+\begin_body
+
+\begin_layout Standard
+An 
+\series bold
+elliptic curve 
+\series default
+is the set of all solutions 
+\begin_inset Formula $(x,y)$
+\end_inset
+
+ to a Weierstrass equation which has the form:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+y^{2}=x^{3}+ax+b
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+together with an extra point 
+\begin_inset Formula $\mathscr{O}(\infty,\infty)$
+\end_inset
+
+ at infinity in the projective plane that lies on every vertical line.
+\end_layout
+
+\begin_layout Standard
+Moreover, 
+\begin_inset Formula $a$
+\end_inset
+
+ and 
+\begin_inset Formula $b$
+\end_inset
+
+ must satisfy 
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\xout off
+\uuline off
+\uwave off
+\noun off
+\color none
+
+\begin_inset Formula $4a^{3}+27b^{2}\neq0$
+\end_inset
+
+.
+\begin_inset Newline newline
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Thus, an elliptic curve 
+\begin_inset Formula $E$
+\end_inset
+
+ is defined by its two parameters: 
+\begin_inset Formula $a$
+\end_inset
+
+ and 
+\begin_inset Formula $b$
+\end_inset
+
+ and obviously, a point 
+\begin_inset Formula $(x,y)$
+\end_inset
+
+ is on an elliptic curve 
+\begin_inset Formula $E$
+\end_inset
+
+ if it satisfies the Weierstrass equation associated with E.
+\begin_inset Newline newline
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+We define the addition of points on an elliptic curve with the following
+ algorithm:
+\end_layout
+
+\begin_layout Algorithm*
+\begin_inset Argument 1
+status open
+
+\begin_layout Plain Layout
+Elliptic Curve addition Algorithm
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Algorithm*
+Let 
+\begin_inset Formula $E:y^{2}=x^{3}+ax+b$
+\end_inset
+
+ and 
+\begin_inset Formula $P_{1},P_{2}\in E$
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+\begin_inset Argument item:1
+status open
+
+\begin_layout Plain Layout
+(a)
+\end_layout
+
+\end_inset
+
+If 
+\begin_inset Formula $P_{1}=\mathscr{O}$
+\end_inset
+
+, then 
+\begin_inset Formula $P_{1}+P_{2}=P_{2}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+\begin_inset Argument item:1
+status open
+
+\begin_layout Plain Layout
+(b)
+\end_layout
+
+\end_inset
+
+else if 
+\begin_inset Formula $P_{2}=\mathscr{O}$
+\end_inset
+
+ then 
+\begin_inset Formula $P_{1}+P_{2}=P_{1}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+\begin_inset Argument item:1
+status open
+
+\begin_layout Plain Layout
+(c)
+\end_layout
+
+\end_inset
+
+else, write 
+\begin_inset Formula $P_{1}=(x_{1},y_{1})$
+\end_inset
+
+ and 
+\begin_inset Formula $P_{2}=(x_{2},y_{2})$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+\begin_inset Argument item:1
+status open
+
+\begin_layout Plain Layout
+(d)
+\end_layout
+
+\end_inset
+
+if 
+\begin_inset Formula $x_{1}=x_{2}$
+\end_inset
+
+ and 
+\begin_inset Formula $y_{1}=-y_{2}$
+\end_inset
+
+ then return 
+\begin_inset Formula $P_{1}+P_{2}=\text{\ensuremath{\mathscr{O}}}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+\begin_inset Argument item:1
+status open
+
+\begin_layout Plain Layout
+(e)
+\end_layout
+
+\end_inset
+
+Otherwise 
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+define 
+\begin_inset Formula $\lambda$
+\end_inset
+
+ by
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+\begin_inset Formula $\lambda=\frac{y_{2}-y_{1}}{x_{2}-x_{1}}$
+\end_inset
+
+ if 
+\begin_inset Formula $P_{1}\neq P_{2}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+\begin_inset Formula $\lambda=\frac{3x_{1}^{2}+a}{2y_{1}}$
+\end_inset
+
+ if 
+\begin_inset Formula $P_{1}=P_{2}$
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Itemize
+Let 
+\begin_inset Formula $x_{3}=\lambda^{2}-x_{1}-x_{2}$
+\end_inset
+
+ and 
+\begin_inset Formula $y_{3}=\lambda(x_{1}-x_{3})-y_{1}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+Then return 
+\begin_inset Formula $P_{1}+P_{2}=(x_{3},y_{3})$
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\end_deeper
+\begin_layout Standard
+\begin_inset Separator plain
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Now, the addition law makes the points of an elliptic curve 
+\begin_inset Formula $E$
+\end_inset
+
+ into an abelian group:
+\end_layout
+
+\begin_layout Theorem*
+Let 
+\begin_inset Formula $E$
+\end_inset
+
+ be an elliptic curve.
+ Then the addition law on 
+\begin_inset Formula $E$
+\end_inset
+
+ has the following properties:
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+\begin_inset Argument item:1
+status open
+
+\begin_layout Plain Layout
+(Identity)
+\end_layout
+
+\end_inset
+
+
+\begin_inset Formula $P+\mathscr{O}=\text{\ensuremath{\mathscr{O}}}+P=P$
+\end_inset
+
+, 
+\begin_inset Formula $\forall P\in E$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+\begin_inset Argument item:1
+status open
+
+\begin_layout Plain Layout
+(Inverse)
+\end_layout
+
+\end_inset
+
+
+\begin_inset Formula $P+(-P)=\text{\ensuremath{\mathscr{O}}}$
+\end_inset
+
+, 
+\begin_inset Formula $\forall P\in E$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+\begin_inset Argument item:1
+status open
+
+\begin_layout Plain Layout
+(Associative)
+\end_layout
+
+\end_inset
+
+
+\begin_inset Formula $(P+Q)+R=P+(Q+R)$
+\end_inset
+
+, 
+\begin_inset Formula $\forall P,Q,R\in E$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+\begin_inset Argument item:1
+status open
+
+\begin_layout Plain Layout
+(Commutative)
+\end_layout
+
+\end_inset
+
+
+\begin_inset Formula $P+Q=Q+P$
+\end_inset
+
+, 
+\begin_inset Formula $\forall P,Q\in E$
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Standard
+\begin_inset Separator plain
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Now, the identity, inverse and commutative properties are easily verifiable.
+ However, although there are many ways to prove associativity, none of the
+ proofs are easy and require more advanced notions on elliptic curves.
+ However, we can approach the problem with very rudimentary means by simply
+ using the explicit formulas described in the algorithm above and verify
+ every case.
+ 
+\end_layout
+
+\begin_layout Standard
+This approach is 
+\series bold
+very tedious.
+ 
+\series default
+Thus, we propose a computer-assisted approach.
+\end_layout
+
+\end_body
+\end_document
